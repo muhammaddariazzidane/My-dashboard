@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+</head>
+
+<body class="relative">
+  <header class="w-full px-4 h-16 fixed top-0  bg-slate-900">
+
+    <nav class="flex justify-end">
+      <div class="absolute left-6 top-4 transition-all duration-500 lg:translate-x-80" id="toggleSide">
+        <div onclick="toggleSidebar()" as='button' class="text-white pr-4">
+          <i data-feather="menu" class="mt-1 hover:cursor-pointer"></i>
+        </div>
+      </div>
+      <div class="flex items-center space-x-1 lg:space-x-4">
+        <a href="#" class="my-4 px-4  text-white">Zidane</a>
+        <!-- dropdown -->
+        <div as='button' class="text-white pr-4 relative" onclick="toggleNavMenu()">
+          <i data-feather="chevron-down" class="mt-1 hover:cursor-pointer" id="arrow"></i>
+          <div id="navMenu"
+            class="absolute dark:bg-slate-800 rounded-lg w-32 min-h-full -scale-y-0  transition-all duration-300 rounded-tr-none top-8 right-7 z-[999] shadow hover:shadow-xl">
+            <ul class="flex flex-col  text-center ">
+              <li class="p-2 hover:bg-slate-500 transition-all duration-300"><a href="#">Dashboard</a></li>
+              <li class="p-2 hover:bg-slate-500 transition-all duration-300"><a href="#">Logout</a></li>
+              <li class="p-2 hover:bg-slate-500 transition-all duration-300"><a href="#">Logout</a></li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <!-- bg-transparent -->
+  <div class=" lg:hidden absolute bg-black/60 min-h-screen overflow-y-scroll w-full" id="bgSidebar">
+  </div>
+  <!-- bg-transparent -->
+  <aside
+    class=" transition-all duration-300 absolute dark:bg-slate-900 min-h-screen z-[9999] overflow-y-scroll w-[40%] lg:w-[25%]"
+    id="sidebar">
+    <div class="relative w-full">
+      <div onclick="toggleSidebar()" as="button"
+        class="hover:cursor-pointer absolute z-[99999] lg:hidden dark:bg-white bg-slate-900 rounded-full p-2 top-4 right-4">
+        <i data-feather="x" class="text-white  dark:text-red-600"></i>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- main content -->
+
+  <main id="main" class="bg-slate-700 transition-all duration-300 lg:ml-[25%] min-h-screen">
+
+  </main>
+
+
+  <!-- main content -->
+
+
+
+
+  <script>
+    const toggleSide = document.querySelector('#toggleSide')
+    const sidebar = document.querySelector('#sidebar')
+    const bgSidebar = document.querySelector('#bgSidebar')
+    const main = document.querySelector('#main')
+    const navMenu = document.querySelector("#navMenu")
+
+    const toggleNavMenu = () => {
+      navMenu.classList.toggle('-scale-y-0')
+
+    }
+    const toggleSidebar = () => {
+      toggleSide.classList.toggle('lg:translate-x-80')
+      main.classList.toggle('lg:ml-[25%]')
+      sidebar.classList.toggle('-translate-x-full')
+      bgSidebar.classList.toggle('-translate-x-full')
+    }
+    // toggleSide.addEventListener('click', () => {
+    // })
+    feather.replace()
+  </script>
+</body>
+
+</html>
