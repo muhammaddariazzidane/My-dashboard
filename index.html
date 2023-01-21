@@ -22,7 +22,7 @@
         <a href="#" class="my-4 px-4  text-white">Zidane</a>
         <!-- dropdown -->
         <div as='button' class="text-white pr-4 relative" onclick="toggleNavMenu()">
-          <i data-feather="chevron-down" class="mt-1 hover:cursor-pointer" id="arrow"></i>
+          <i data-feather="chevrons-down" class="mt-1 hover:cursor-pointer" id="arrow"></i>
           <div id="navMenu"
             class="absolute dark:bg-slate-800 rounded-lg w-32 min-h-full -scale-y-0  transition-all duration-300 rounded-tr-none top-8 right-7 z-[999] shadow hover:shadow-xl">
             <ul class="flex flex-col  text-center ">
@@ -38,16 +38,32 @@
     </nav>
   </header>
   <!-- bg-transparent -->
-  <div class=" lg:hidden absolute bg-black/60 min-h-screen overflow-y-scroll w-full" id="bgSidebar">
+  <div as="button" class=" lg:hidden absolute  bg-black/60 min-h-screen overflow-y-scroll w-full" id="bgSidebar"
+    onclick="toggleSidebar()">
   </div>
   <!-- bg-transparent -->
   <aside
-    class=" transition-all duration-300 absolute dark:bg-slate-900 min-h-screen z-[9999] overflow-y-scroll w-[40%] lg:w-[25%]"
+    class=" transition-all duration-300 absolute dark:bg-slate-900 min-h-screen z-[999] overflow-y-scroll w-[40%] lg:w-[25%]"
     id="sidebar">
-    <div class="relative w-full">
+
+    <div class="absolute w-full text-white lg:shadow-none shadow-sm shadow-slate-800 h-16">
+      <h1 class="my-4 text-lg lg:text-2xl lg:px-0 px-4 lg:text-center">Dashboard</h1>
       <div onclick="toggleSidebar()" as="button"
-        class="hover:cursor-pointer absolute z-[99999] lg:hidden dark:bg-white bg-slate-900 rounded-full p-2 top-4 right-4">
+        class="hover:cursor-pointer absolute z-[99999] lg:hidden dark:bg-white bg-slate-900 rounded-full p-[0.4rem] top-3 right-4">
         <i data-feather="x" class="text-white  dark:text-red-600"></i>
+      </div>
+    </div>
+    <div class="absolute top-16 min-h-screen  w-full  text-white">
+      <div class="my-3">
+
+        <div class="p-2.5 py-4 flex items-center  px-4 duration-300 cursor-pointer hover:bg-slate-600 text-white">
+          <i data-feather="home"></i>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold">Home</span>
+        </div>
+        <div class="p-2.5 py-4 flex items-center  px-4 duration-300 cursor-pointer hover:bg-slate-600 text-white">
+          <i data-feather="grid"></i>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span>
+        </div>
       </div>
     </div>
   </aside>
@@ -57,11 +73,12 @@
 
   <main id="main" class="bg-slate-700 transition-all duration-300 lg:ml-[25%] min-h-screen">
 
+
   </main>
 
 
-  <!-- main content -->
 
+  <!-- main content -->
 
 
 
